@@ -1,0 +1,30 @@
+.nav {
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: 1px solid black;
+}
+
+.nav__main {
+	flex-basis: 75%;
+}
+
+.nav__title {
+	padding: 15px 10px;
+	border-right: 1px solid black;
+}
+
+.nav__empty {
+	flex-basis: 25%;
+	background-color: black;
+	opacity: 0.1;
+}.card {
+	width: auto;
+	height: 200px;
+	background: lightblue;
+}.content {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+	    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
