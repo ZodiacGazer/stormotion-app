@@ -14,5 +14,10 @@
     "parcel-bundler": "^1.9.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.6.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "postcss-modules": "^1.1.0"
   }
 }
