@@ -1,12 +1,24 @@
 import React from 'react';
 
-// Components
-import Main from './components/Main.js';
+import { Provider } from 'react-redux';
 
-const App = () => (
-	<div>
-		<Main />
-	</div>
+// Router
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+
+// Components
+import Main from './components/Main';
+import Create from './components/Create';
+
+const App = ({store}) => (
+	<Provider store={store}>
+		<Router>
+			<Switch>
+				<Route exact path='/' component={Main} />
+				<Route path='/create' component={Create} />
+				<Route render={() => <div>Not found</div>} />
+			</Switch>
+		</Router>
+	</Provider>
 );
 
 export default App;

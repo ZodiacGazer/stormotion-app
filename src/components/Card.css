@@ -1,5 +1,24 @@
 .card {
 	width: auto;
 	height: 200px;
-	background: lightblue;
+	background: #FFF;
+	transition: box-shadow .3s ease-in;	
+}
+
+.card:hover {
+	cursor: pointer;
+	box-shadow: 5px 5px 1px 1px;
+}
+
+.card__pic {
+	width: auto;
+	height: 100px;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.card__title {
+	padding: 20px 10px 0px 10px;
 }

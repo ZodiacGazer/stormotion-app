@@ -1,13 +1,19 @@
 import React from 'react';
 
-// Styles
+// Assets
 import './Card.css';
+import placeHolder from '../assets/placeholder.png';
 
-const Card = () => (
-	<div className='card'>
-		<img className='card__pic' src='' />
-		<h3 className='card__title'>Some title</h3>
-	</div>
-);
+
+const Card = ({title, text, url}) => {
+	const link = url ? url[0] : placeholder;
+	return (
+		<div className='card'>
+			<div className='card__pic' style={{backgroundImage: `url(${link})`}}></div>
+			<p className='card__title'>{title}</p>
+		</div>
+	)
+	
+};
 
 export default Card;

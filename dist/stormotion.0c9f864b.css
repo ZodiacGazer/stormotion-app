@@ -11,20 +11,133 @@
 .nav__title {
 	padding: 15px 10px;
 	border-right: 1px solid black;
+	width: 100%;
 }
 
 .nav__empty {
 	flex-basis: 25%;
 	background-color: black;
 	opacity: 0.1;
+}
+
+.main__block {
+	display: flex;
+}
+
+.backSpace {
+	width: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: lightgrey;
 }.card {
 	width: auto;
 	height: 200px;
-	background: lightblue;
-}.content {
+	background: #FFF;
+	transition: box-shadow .3s ease-in;	
+}
+
+.card:hover {
+	cursor: pointer;
+	box-shadow: 5px 5px 1px 1px;
+}
+
+.card__pic {
+	width: auto;
+	height: 100px;
+	margin: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.card__title {
+	padding: 20px 10px 0px 10px;
+}
+.main-grid {
 	display: -ms-grid;
 	display: grid;
 	-ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
 	    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 	grid-gap: 10px;
+}.preview-pic {
+	width: 100px;
+	height: 100px;
+	margin: 0px;
+	border-radius: 6px;
+	border: 1px solid rgba(226,224,255,0.3);
 }
+
+input[type='file'] {
+	display: none;
+}
+
+.upload-pic {
+    cursor: pointer;
+    opacity: 0;
+    display: block;
+    height: 100px;
+}.create__preview {
+	flex-basis: 40%;
+}
+
+.create__paper {
+	background: #fff;
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	border-radius: 4px;
+}
+
+.create__wrapper {
+	display: flex;
+	margin-top: 40px;
+}
+
+.paper__title, 
+.paper__desc, 
+.paper__pics {
+	margin: 10px 0;
+}
+
+.paper__pics {
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+	width: 90%;
+	border-top: 1px solid grey;
+}
+
+.title__input {
+	border: none;
+	border: 1px solid grey;
+	border-radius: 20px;
+	padding: 10px;
+	width: 90%;
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 40px;
+}
+
+.title__input:focus, .desc__input:focus {
+	outline: none;
+}
+
+.desc__input {
+	resize: none;
+	width: 90%;
+	border: none;
+	border: 1px solid grey;
+	border-radius: 10px;
+	padding: 10px;
+	font-size: 20px;
+	margin-bottom: 40px;
+}
+
+.paper__grid {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
+	    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+

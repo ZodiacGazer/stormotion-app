@@ -11,10 +11,23 @@
 .nav__title {
 	padding: 15px 10px;
 	border-right: 1px solid black;
+	width: 100%;
 }
 
 .nav__empty {
 	flex-basis: 25%;
 	background-color: black;
 	opacity: 0.1;
+}
+
+.main__block {
+	display: flex;
+}
+
+.backSpace {
+	width: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: lightgrey;
 }
