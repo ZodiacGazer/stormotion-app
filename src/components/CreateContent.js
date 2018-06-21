@@ -12,38 +12,32 @@ import './CreateContent.css';
 import placeHolder from '../assets/placeholder.png';
 
 
-// const CreateContent = ({createCard}) => (
-// 	<main className='content'>
-// 		<div className='create__wrapper'>
-// 			<div className='create__preview'>Phone</div>
-// 			<div className='create__paper'>
-// 				<h4 className='paper__title'>Заголовок</h4>
-// 				<input className='title__input' type='text' name='title' maxlenght="20" />
-// 				<h4 className='paper__desc'>Описание</h4>
-// 				<textarea className='desc__input' rows="8"></textarea>
-// 				<h4 className='paper__pics'>Фотографии</h4>
-// 				{localStorage.length ? Object.keys(localStorage).map((e, i) => <PreviewCard src={localStorage[e]} key={i.toString()} />) : null}
-// 				<CreatePreviewCard />
-// 				<button onClick={() => createCard('hye','you','jan')}>Save</button>
-// 				<Link to='/'>Back</Link>
-// 			</div>
-// 		</div>
-// 	</main>
-// );
 
 class CreateContent extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			cards: this.props.cards,
-			title: null,
-			text: null,
+			title: '',
+			text: '',
 			url: []
 		}
 		this.handleInputs = this.handleInputs.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleUpload = this.handleUpload.bind(this);
+		this.id = props.id || null;
 	}
+	componentDidMount() {
+		if (this.id != null) {
+			const {title, text, url} = this.state.cards[this.id];
+			this.setState({
+				title,
+				text,
+				url
+			})
+		}
+	}
+
 	handleInputs(e) {
 		const target = e.target;
 		const name = target.name;
@@ -53,8 +47,14 @@ class CreateContent extends React.Component {
 		})
 	};
 	handleClick() {
+		debugger
 		const {title, text, url} = this.state;
-		this.props.createCard(title, text, url);
+		if (this.id === null) {
+			this.props.createCard(title, text, url);	
+		} else {
+			this.props.editCard(this.id, title, text, url)
+		}
+		
 	}
 	handleUpload(e) {
 		let files = e.target.files;
@@ -80,9 +80,9 @@ class CreateContent extends React.Component {
 					<div className='create__preview'>Phone</div>
 					<div className='create__paper'>
 						<h4 className='paper__title'>Заголовок</h4>
-						<input className='title__input' type='text' name='title' maxlenght="20" onChange={this.handleInputs} />
+						<input className='title__input' value={this.state.title} type='text' name='title' maxlenght="20" onChange={this.handleInputs} />
 						<h4 className='paper__desc'>Описание</h4>
-						<textarea className='desc__input' rows="8" name='text' onChange={this.handleInputs}></textarea>
+						<textarea  value={this.state.text}  className='desc__input' rows="8" name='text' onChange={this.handleInputs}></textarea>
 						<h4 className='paper__pics'>Фотографии</h4>
 						<div className='paper__grid'>
 							{this.state.url.length ? this.state.url.map((e, i) => <PreviewCard url={e} key={i.toString()} />) : false}

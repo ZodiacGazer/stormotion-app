@@ -54,13 +54,7 @@
 .card__title {
 	padding: 20px 10px 0px 10px;
 }
-.main-grid {
-	display: -ms-grid;
-	display: grid;
-	-ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-	    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-	grid-gap: 10px;
-}.preview-pic {
+.preview-pic {
 	width: 100px;
 	height: 100px;
 	margin: 0px;
@@ -141,3 +135,10 @@ input[type='file'] {
 	    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
 }
 
+.main-grid {
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
+	    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}

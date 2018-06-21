@@ -1,12 +1,19 @@
 import { connect } from 'react-redux';
 import CreateContent from '../components/CreateContent';
-import { createCard } from '../actions';
+import { createCard, editCard } from '../actions';
 
-const mapDispatchToProps = (dispatch, props) => {
+const mapStateToProps = (state, props) => {
 	return {
-		createCard: (title, text, url) => dispatch(createCard(title, text, url))
+		cards: state.cards
 	}
 };
 
-const ConnectedCreateContent = connect(null, mapDispatchToProps)(CreateContent);
+const mapDispatchToProps = (dispatch, props) => {
+	return {
+		createCard: (title, text, url) => dispatch(createCard(title, text, url)),
+		editCard: (id, title, text, url) => dispatch(editCard(id, title, text, url))
+	}
+};
+
+const ConnectedCreateContent = connect(mapStateToProps, mapDispatchToProps)(CreateContent);
 export default ConnectedCreateContent;

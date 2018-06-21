@@ -5,11 +5,15 @@ import Navigation from './Navigation';
 // import CreateContent from './CreateContent';
 import ConnectedCreateContent from '../containers/ConnectedCreateContent';
 
-const Create = () => (
-	<React.Fragment>
-		<Navigation title='новое' backSpace='on' />
-		<ConnectedCreateContent />
-	</React.Fragment>	
-);
+const Create = ({match}) => {
+	const id = match.params.id ? match.params.id: false;
+	const title = id ? 'редактирование' : 'новое'
+	return (
+		<React.Fragment>
+			<Navigation title={title} backSpace='on' />
+			<ConnectedCreateContent id={id} />
+		</React.Fragment>
+	)	
+};
 
 export default Create;

@@ -6,7 +6,7 @@ import placeHolder from '../assets/placeholder.png';
 
 
 const Card = ({title, text, url}) => {
-	const link = url ? url[0] : placeholder;
+	const link = url ? url[0] : placeHolder;
 	return (
 		<div className='card'>
 			<div className='card__pic' style={{backgroundImage: `url(${link})`}}></div>

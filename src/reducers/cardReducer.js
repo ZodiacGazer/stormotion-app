@@ -1,4 +1,4 @@
-import { CREATE_CARD, REMOVE_CARD } from '../actionTypes';
+import { CREATE_CARD, EDIT_CARD } from '../actionTypes';
 
 const cardReducer = (state=[], action) => {
 	switch (action.type) {
@@ -7,6 +7,10 @@ const cardReducer = (state=[], action) => {
 			return [
 				...state, {title, text, url}
 			]
+		}
+		case EDIT_CARD: {
+			const {id, ...card} = action;
+			return state.map((oldcard, i) => id == i ? {...card} : oldcard); 
 		}
 		default: {
 			return state;

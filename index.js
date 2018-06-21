@@ -6,7 +6,11 @@ import App from './src/App';
 
 // Testing
 import store from './src/store/store';
-localStorage.clear();
+import { createCard, editCard } from './src/actions';
+
+window.store = store;
+window.editCard = editCard;
+window.createCard = createCard;
 
 console.log(store.getState());
 store.subscribe(() => {

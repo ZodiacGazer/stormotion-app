@@ -6,10 +6,10 @@ import Navigation from './Navigation';
 import ConnectedContent from '../containers/ConnectedContent';
 
 
-const Main = () => (
+const Main = ({match}) => (
 	<React.Fragment>
 		<Navigation title='уведомления' />
-		<ConnectedContent />
+		<ConnectedContent match={match.url} />
 	</React.Fragment>
 );
 

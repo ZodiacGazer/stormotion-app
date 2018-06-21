@@ -8,3 +8,13 @@ export const createCard = (title, text, url) => {
 		url
 	}
 };
+
+export const editCard = (id, title, text, url) => {
+	return {
+		type: EDIT_CARD,
+		id,
+		title,
+		text,
+		url
+	}
+};
