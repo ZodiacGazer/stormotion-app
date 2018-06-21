@@ -26611,7 +26611,9 @@ exports.Switch = _Switch3.default;
 exports.generatePath = _generatePath3.default;
 exports.matchPath = _matchPath3.default;
 exports.withRouter = _withRouter3.default;
-},{"./BrowserRouter":24,"./HashRouter":25,"./Link":26,"./MemoryRouter":27,"./NavLink":28,"./Prompt":29,"./Redirect":30,"./Route":31,"./Router":32,"./StaticRouter":33,"./Switch":34,"./generatePath":35,"./matchPath":36,"./withRouter":37}],15:[function(require,module,exports) {
+},{"./BrowserRouter":24,"./HashRouter":25,"./Link":26,"./MemoryRouter":27,"./NavLink":28,"./Prompt":29,"./Redirect":30,"./Route":31,"./Router":32,"./StaticRouter":33,"./Switch":34,"./generatePath":35,"./matchPath":36,"./withRouter":37}],132:[function(require,module,exports) {
+module.exports="/shape-copy-line-line-copy.3d1c7c2e.png";
+},{}],15:[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
   if (!bundleURL) {
@@ -26672,13 +26674,13 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":15}],52:[function(require,module,exports) {
+},{"./bundle-url":15}],142:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],19:[function(require,module,exports) {
+},{"_css_loader":4}],141:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26689,10 +26691,70 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-require('./Navigation.css');
+var _shapeCopyLineLineCopy = require('../assets/shape-copy-line-line-copy.png');
+
+var _shapeCopyLineLineCopy2 = _interopRequireDefault(_shapeCopyLineLineCopy);
+
+require('./Button.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Assets
+var Button = function Button(_ref) {
+	var title = _ref.title,
+	    saveState = _ref.saveState;
+
+	return _react2.default.createElement(
+		'div',
+		{ className: 'button' },
+		saveState != 'on' && _react2.default.createElement('img', { src: _shapeCopyLineLineCopy2.default, className: 'button-icon' }),
+		_react2.default.createElement(
+			'span',
+			{ className: 'button-text' },
+			title
+		)
+	);
+};
+
+exports.default = Button;
+},{"react":7,"../assets/shape-copy-line-line-copy.png":132,"./Button.css":142}],52:[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":4}],140:[function(require,module,exports) {
+module.exports="/path-1629.5c1f93fe.png";
+},{}],19:[function(require,module,exports) {
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = require('react-router-dom');
+
+var _Button = require('./Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+require('./Navigation.css');
+
+var _shapeCopyLineLineCopy = require('../assets/shape-copy-line-line-copy.png');
+
+var _shapeCopyLineLineCopy2 = _interopRequireDefault(_shapeCopyLineLineCopy);
+
+var _path = require('../assets/path-1629.png');
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Components
 var Navigation = function Navigation(_ref) {
 	var title = _ref.title,
 	    backSpace = _ref.backSpace;
@@ -26707,14 +26769,27 @@ var Navigation = function Navigation(_ref) {
 				'div',
 				{ className: 'main__block' },
 				backSpace == 'on' && _react2.default.createElement(
-					'div',
-					{ className: 'backSpace' },
-					'left'
+					_reactRouterDom.Link,
+					{ to: '/' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'backSpace' },
+						_react2.default.createElement('img', { src: _path2.default })
+					)
 				),
 				_react2.default.createElement(
 					'h1',
 					{ className: 'nav__title' },
 					title
+				),
+				backSpace == 'on' ? _react2.default.createElement(
+					_reactRouterDom.Link,
+					{ to: '/create' },
+					_react2.default.createElement(_Button2.default, { title: '\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C', saveState: 'on' })
+				) : _react2.default.createElement(
+					_reactRouterDom.Link,
+					{ to: '/create' },
+					_react2.default.createElement(_Button2.default, { title: '\u0421\u043E\u0437\u0434\u0430\u0442\u044C', saveState: 'off' })
 				)
 			),
 			_react2.default.createElement('div', { className: 'empty' })
@@ -26723,16 +26798,16 @@ var Navigation = function Navigation(_ref) {
 	);
 };
 
-// Styles
+// Assets
 exports.default = Navigation;
-},{"react":7,"./Navigation.css":52}],107:[function(require,module,exports) {
+},{"react":7,"react-router-dom":16,"./Button":141,"./Navigation.css":52,"../assets/shape-copy-line-line-copy.png":132,"../assets/path-1629.png":140}],107:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":4}],85:[function(require,module,exports) {
-module.exports="/placeholder.6133f991.png";
+},{"_css_loader":4}],139:[function(require,module,exports) {
+module.exports="/picture.0334c3e6.png";
 },{}],92:[function(require,module,exports) {
 'use strict';
 
@@ -26746,9 +26821,9 @@ var _react2 = _interopRequireDefault(_react);
 
 require('./Card.css');
 
-var _placeholder = require('../assets/placeholder.png');
+var _picture = require('../assets/picture.png');
 
-var _placeholder2 = _interopRequireDefault(_placeholder);
+var _picture2 = _interopRequireDefault(_picture);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26758,23 +26833,44 @@ var Card = function Card(_ref) {
 	    text = _ref.text,
 	    url = _ref.url;
 
-	var link = url ? url[0] : _placeholder2.default;
+	var styles = void 0;
+	var link = url.length ? url[0] : _picture2.default;
+	var utils = url.length ? true : false;
+	if (utils) {
+		styles = {
+			height: null,
+			bs: 'cover',
+			border: null
+		};
+	} else {
+		styles = {
+			height: '146px',
+			bs: 'contain',
+			border: 'solid 1px rgba(106, 117, 131, 0.16)'
+		};
+	}
 	return _react2.default.createElement(
 		'div',
 		{ className: 'card' },
-		_react2.default.createElement('div', { className: 'card__pic', style: { backgroundImage: 'url(' + link + ')' } }),
+		_react2.default.createElement('div', { className: 'card__pic', style: { backgroundImage: 'url(' + link + ')', width: '' + styles.height, backgroundSize: '' + styles.bs } }),
 		_react2.default.createElement(
 			'p',
-			{ className: 'card__title' },
+			{ className: 'card__title', style: { borderTop: '' + styles.border } },
 			title
 		)
 	);
 };
 
 exports.default = Card;
-},{"react":7,"./Card.css":107,"../assets/placeholder.png":85}],106:[function(require,module,exports) {
-module.exports="/createCard.7ce13d2a.png";
-},{}],91:[function(require,module,exports) {
+},{"react":7,"./Card.css":107,"../assets/picture.png":139}],138:[function(require,module,exports) {
+module.exports="/oval-46-shape-copy.bd272971.png";
+},{}],137:[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":4}],91:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26785,29 +26881,33 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _createCard = require('../assets/createCard.png');
+var _oval46ShapeCopy = require('../assets/oval-46-shape-copy.png');
 
-var _createCard2 = _interopRequireDefault(_createCard);
+var _oval46ShapeCopy2 = _interopRequireDefault(_oval46ShapeCopy);
+
+require('./CreateCard.css');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Assets
 var CreateCard = function CreateCard() {
 	return _react2.default.createElement(
 		'div',
 		{ className: 'card' },
-		_react2.default.createElement('div', { className: 'card__pic create-pic', style: { backgroundImage: 'url(' + _createCard2.default + ')' } }),
+		_react2.default.createElement('div', { className: 'card__pic create-pic', style: { backgroundImage: 'url(' + _oval46ShapeCopy2.default + ')' } }),
 		_react2.default.createElement(
 			'p',
 			{ className: 'card__title create-title' },
-			'\u0441\u043E\u0437\u0434\u0430\u0442\u044C \u0435\u0449\u0435 \u043E\u0434\u043D\u0443 \u0440\u0430\u0441\u0441\u044B\u043B\u043A\u0443'
+			'C\u043E\u0437\u0434\u0430\u0442\u044C \u0435\u0449\u0435 \u043E\u0434\u043D\u0443 \u0440\u0430\u0441\u0441\u044B\u043B\u043A\u0443'
 		)
 	);
 };
 
-// Assets
 exports.default = CreateCard;
-},{"react":7,"../assets/createCard.png":106}],104:[function(require,module,exports) {
+},{"react":7,"../assets/oval-46-shape-copy.png":138,"./CreateCard.css":137}],104:[function(require,module,exports) {
 module.exports="/pumpkin.324d5000.jpg";
+},{}],85:[function(require,module,exports) {
+module.exports="/placeholder.6133f991.png";
 },{}],105:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
@@ -27255,7 +27355,7 @@ var Create = function Create(_ref) {
 		_react2.default.Fragment,
 		null,
 		_react2.default.createElement(_Navigation2.default, { title: title, backSpace: 'on' }),
-		_react2.default.createElement(_ConnectedCreateContent2.default, { id: id })
+		_react2.default.createElement(_ConnectedCreateContent2.default, null)
 	);
 };
 // import CreateContent from './CreateContent';
@@ -27554,7 +27654,7 @@ _store2.default.subscribe(function () {
 });
 
 _reactDom2.default.render(_react2.default.createElement(_App2.default, { store: _store2.default }), document.getElementById('root'));
-},{"react":7,"react-dom":8,"./src/App":5,"./src/store/store":6,"./src/actions":110}],131:[function(require,module,exports) {
+},{"react":7,"react-dom":8,"./src/App":5,"./src/store/store":6,"./src/actions":110}],143:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -27723,5 +27823,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[131,3])
+},{}]},{},[143,3])
 //# sourceMappingURL=/stormotion.0c9f864b.map

@@ -1,0 +1,11 @@
+.create-title {
+	font-style: italic;
+	line-height: 1.21;
+	opacity: 0.2;
+	text-align: center;
+}
+
+.create-pic {
+	width: 80px;
+	height: 160px;
+}

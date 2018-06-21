@@ -1,7 +1,7 @@
 .nav {
 	display: flex;
 	flex-wrap: wrap;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid rgba(51,51,51,0.2);
 }
 
 .nav__main {
@@ -10,24 +10,50 @@
 
 .nav__title {
 	padding: 15px 10px;
-	border-right: 1px solid black;
 	width: 100%;
+	text-transform: uppercase;
+	color: #343434;
+	font-size: 22px;
 }
 
 .nav__empty {
 	flex-basis: 25%;
-	background-color: black;
-	opacity: 0.1;
+	background-color: #f3f3f3;
+}
+
+.nav__button {
+	padding: 10px 30px;
+	background: #fff;
+	margin-right: 20px;
+	text-transform: capitalize;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.nav__button-icon {
+	position: relative;
+	left: -10px;
+}
+
+.nav__button-text {
+	font-size: 13px;
 }
 
 .main__block {
 	display: flex;
+	border-right: 1px solid rgba(40,44,55, 0.2);
+	align-items: center;
 }
 
 .backSpace {
-	width: 70px;
+	width: 73px;
+	height: 69px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background: lightgrey;
+	cursor: pointer;
 }
