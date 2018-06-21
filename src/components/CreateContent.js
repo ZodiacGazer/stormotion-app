@@ -9,7 +9,8 @@ import PreviewCard from './PreviewCard';
 
 // Assets
 import './CreateContent.css';
-import placeHolder from '../assets/placeholder.png';
+import placeHolder from '../assets/picture.png';
+import addIcon from '../assets/shape-copy-line-line-copy.png';
 
 
 
@@ -25,6 +26,7 @@ class CreateContent extends React.Component {
 		this.handleInputs = this.handleInputs.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleUpload = this.handleUpload.bind(this);
+		this.handleDeletePicture = this.handleDeletePicture.bind(this);
 		this.id = props.id || null;
 	}
 	componentDidMount() {
@@ -73,6 +75,7 @@ class CreateContent extends React.Component {
           	fr.readAsDataURL(f)
         }
 	}
+	handleDeletePicture() {};
 	render() {
 		return (
 			<main className='content'>
@@ -85,11 +88,12 @@ class CreateContent extends React.Component {
 						<textarea  value={this.state.text}  className='desc__input' rows="8" name='text' onChange={this.handleInputs}></textarea>
 						<h4 className='paper__pics'>Фотографии</h4>
 						<div className='paper__grid'>
-							{this.state.url.length ? this.state.url.map((e, i) => <PreviewCard url={e} key={i.toString()} />) : false}
-							<div className='card__pic preview-pic' style={{backgroundImage: `url(${placeHolder})`}}>
+							{this.state.url.length ? this.state.url.map((e, i) => <PreviewCard url={e} key={i.toString()} urlId={i} cardId={this.id} deletePicture={this.handleDeletePicture} />) : false}
+							<div className='card__pic preview-pic placeholder' style={{backgroundImage: `url(${placeHolder})`}}>
 								<label className='upload-pic' htmlFor='upload-pic'>link
 									<input className='paper__image' id='upload-pic' name='upload-pic' type='file' accept='image/*' onChange={this.handleUpload} multiple />
 								</label>
+								<img className='add-icon' src={addIcon} />
 							</div>
 						</div>
 						<Link to='/'><button onClick={this.handleClick}>Save</button></Link>

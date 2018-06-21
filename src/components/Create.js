@@ -11,7 +11,7 @@ const Create = ({match}) => {
 	return (
 		<React.Fragment>
 			<Navigation title={title} backSpace='on' />
-			<ConnectedCreateContent />
+			<ConnectedCreateContent id={id} />
 		</React.Fragment>
 	)	
 };

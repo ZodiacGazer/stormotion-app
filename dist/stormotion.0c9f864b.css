@@ -130,6 +130,10 @@ input[type='file'] {
     opacity: 0;
     display: block;
     height: 100px;
+}.delete-icon {
+	position: relative;
+	top: -12px;
+	left: 88px;
 }.create__preview {
 	flex-basis: 40%;
 }
@@ -151,20 +155,23 @@ input[type='file'] {
 .paper__desc, 
 .paper__pics {
 	margin: 10px 0;
+	font-size: 14px;
+	color: #afafaf;
 }
+
 
 .paper__pics {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 20px;
 	width: 90%;
-	border-top: 1px solid grey;
+	border-top: 1px solid rgba(40,44,45,0.2);
 }
 
 .title__input {
 	border: none;
-	border: 1px solid grey;
-	border-radius: 20px;
+	border: solid 1px #d7d7d7;
+	border-radius: 10px;
 	padding: 10px;
 	width: 90%;
 	text-align: center;
@@ -180,7 +187,7 @@ input[type='file'] {
 	resize: none;
 	width: 90%;
 	border: none;
-	border: 1px solid grey;
+	border: solid 1px #d7d7d7;
 	border-radius: 10px;
 	padding: 10px;
 	font-size: 20px;
@@ -192,9 +199,18 @@ input[type='file'] {
 	display: grid;
 	-ms-grid-columns: (minmax(100px, 1fr))[auto-fill];
 	    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+	grid-row-gap: 10px;
 }
 
-.main-grid {
+.placeholder {
+	background-size: 50%;
+}
+
+.add-icon {
+	position: relative;
+	top: -112px;
+	left: 80px;
+}.main-grid {
 	display: -ms-grid;
 	display: grid;
 	-ms-grid-columns: (minmax(200px, 1fr))[auto-fill];

@@ -26704,13 +26704,14 @@ var Button = function Button(_ref) {
 	var title = _ref.title,
 	    saveState = _ref.saveState;
 
+	var classState = saveState == 'on' ? null : 'disabled';
 	return _react2.default.createElement(
 		'div',
 		{ className: 'button' },
 		saveState != 'on' && _react2.default.createElement('img', { src: _shapeCopyLineLineCopy2.default, className: 'button-icon' }),
 		_react2.default.createElement(
 			'span',
-			{ className: 'button-text' },
+			{ className: 'button-text ' + classState },
 			title
 		)
 	);
@@ -26966,7 +26967,15 @@ var CreatePreviewCard = function CreatePreviewCard() {
 
 // Assets
 exports.default = CreatePreviewCard;
-},{"react":7,"../assets/pumpkin.jpg":104,"../assets/placeholder.png":85,"./CreatePreviewCard.css":105}],90:[function(require,module,exports) {
+},{"react":7,"../assets/pumpkin.jpg":104,"../assets/placeholder.png":85,"./CreatePreviewCard.css":105}],144:[function(require,module,exports) {
+module.exports="/shape-copy-line-line-copy-delete.ddfe2874.png";
+},{}],145:[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":4}],90:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -26977,15 +26986,29 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _shapeCopyLineLineCopyDelete = require('../assets/shape-copy-line-line-copy-delete.png');
+
+var _shapeCopyLineLineCopyDelete2 = _interopRequireDefault(_shapeCopyLineLineCopyDelete);
+
+require('./PreviewCard.css');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Assets
 var PreviewCard = function PreviewCard(_ref) {
-	var src = _ref.url;
-	return _react2.default.createElement('div', { className: 'card__pic preview-pic', style: { backgroundImage: 'url(' + src + ')' } });
+	var src = _ref.url,
+	    urlId = _ref.urlId,
+	    cardId = _ref.cardId,
+	    removePicture = _ref.removePicture;
+	return _react2.default.createElement(
+		'div',
+		{ className: 'card__pic preview-pic', style: { backgroundImage: 'url(' + src + ')' } },
+		_react2.default.createElement('img', { className: 'delete-icon', src: _shapeCopyLineLineCopyDelete2.default })
+	);
 };
 
 exports.default = PreviewCard;
-},{"react":7}],84:[function(require,module,exports) {
+},{"react":7,"../assets/shape-copy-line-line-copy-delete.png":144,"./PreviewCard.css":145}],84:[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
@@ -27016,9 +27039,13 @@ var _PreviewCard2 = _interopRequireDefault(_PreviewCard);
 
 require('./CreateContent.css');
 
-var _placeholder = require('../assets/placeholder.png');
+var _picture = require('../assets/picture.png');
 
-var _placeholder2 = _interopRequireDefault(_placeholder);
+var _picture2 = _interopRequireDefault(_picture);
+
+var _shapeCopyLineLineCopy = require('../assets/shape-copy-line-line-copy.png');
+
+var _shapeCopyLineLineCopy2 = _interopRequireDefault(_shapeCopyLineLineCopy);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27055,6 +27082,7 @@ var CreateContent = function (_React$Component) {
 		_this.handleInputs = _this.handleInputs.bind(_this);
 		_this.handleClick = _this.handleClick.bind(_this);
 		_this.handleUpload = _this.handleUpload.bind(_this);
+		_this.handleDeletePicture = _this.handleDeletePicture.bind(_this);
 		_this.id = props.id || null;
 		return _this;
 	}
@@ -27127,8 +27155,13 @@ var CreateContent = function (_React$Component) {
 			}
 		}
 	}, {
+		key: 'handleDeletePicture',
+		value: function handleDeletePicture() {}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _this3 = this;
+
 			return _react2.default.createElement(
 				'main',
 				{ className: 'content' },
@@ -27164,17 +27197,18 @@ var CreateContent = function (_React$Component) {
 							'div',
 							{ className: 'paper__grid' },
 							this.state.url.length ? this.state.url.map(function (e, i) {
-								return _react2.default.createElement(_PreviewCard2.default, { url: e, key: i.toString() });
+								return _react2.default.createElement(_PreviewCard2.default, { url: e, key: i.toString(), urlId: i, cardId: _this3.id, deletePicture: _this3.handleDeletePicture });
 							}) : false,
 							_react2.default.createElement(
 								'div',
-								{ className: 'card__pic preview-pic', style: { backgroundImage: 'url(' + _placeholder2.default + ')' } },
+								{ className: 'card__pic preview-pic placeholder', style: { backgroundImage: 'url(' + _picture2.default + ')' } },
 								_react2.default.createElement(
 									'label',
 									{ className: 'upload-pic', htmlFor: 'upload-pic' },
 									'link',
 									_react2.default.createElement('input', { className: 'paper__image', id: 'upload-pic', name: 'upload-pic', type: 'file', accept: 'image/*', onChange: this.handleUpload, multiple: true })
-								)
+								),
+								_react2.default.createElement('img', { className: 'add-icon', src: _shapeCopyLineLineCopy2.default })
 							)
 						),
 						_react2.default.createElement(
@@ -27196,7 +27230,7 @@ var CreateContent = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = CreateContent;
-},{"react":7,"react-router-dom":16,"./CreatePreviewCard":89,"./PreviewCard":90,"./CreateContent.css":84,"../assets/placeholder.png":85}],111:[function(require,module,exports) {
+},{"react":7,"react-router-dom":16,"./CreatePreviewCard":89,"./PreviewCard":90,"./CreateContent.css":84,"../assets/picture.png":139,"../assets/shape-copy-line-line-copy.png":132}],111:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -27318,6 +27352,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
 		},
 		editCard: function editCard(id, title, text, url) {
 			return dispatch((0, _actions.editCard)(id, title, text, url));
+		},
+		removePicture: function removePicture(id) {
+			return dispatch((0, _actions.removePicture)(id));
 		}
 	};
 };
@@ -27355,7 +27392,7 @@ var Create = function Create(_ref) {
 		_react2.default.Fragment,
 		null,
 		_react2.default.createElement(_Navigation2.default, { title: title, backSpace: 'on' }),
-		_react2.default.createElement(_ConnectedCreateContent2.default, null)
+		_react2.default.createElement(_ConnectedCreateContent2.default, { id: id })
 	);
 };
 // import CreateContent from './CreateContent';

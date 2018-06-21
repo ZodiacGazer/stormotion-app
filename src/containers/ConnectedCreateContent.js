@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import CreateContent from '../components/CreateContent';
-import { createCard, editCard } from '../actions';
+import { createCard, editCard, removePicture } from '../actions';
 
 const mapStateToProps = (state, props) => {
 	return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
 	return {
 		createCard: (title, text, url) => dispatch(createCard(title, text, url)),
-		editCard: (id, title, text, url) => dispatch(editCard(id, title, text, url))
+		editCard: (id, title, text, url) => dispatch(editCard(id, title, text, url)),
+		removePicture: (id) => dispatch(removePicture(id))
 	}
 };
 

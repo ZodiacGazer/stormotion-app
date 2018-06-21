@@ -5,6 +5,10 @@ const picturesReducer = (state=[], action) => {
 		case ADD_PICTURE: {
 			const {url} = action;
 			return [...state, url]
+		};
+		case REMOVE_PICTURE: {
+			const {id} = action;
+			return state.filter;
 		}
 	}
 }
