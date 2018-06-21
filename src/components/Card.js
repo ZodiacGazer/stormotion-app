@@ -12,7 +12,7 @@ const Card = ({title, text, url}) => {
 	if (utils) {
 		styles = {
 			height: null,
-			bs: 'cover',
+			bs: 'contain',
 			border: null 
 		}; 
 	} else {

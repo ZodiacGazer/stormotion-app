@@ -75,7 +75,12 @@ class CreateContent extends React.Component {
           	fr.readAsDataURL(f)
         }
 	}
-	handleDeletePicture() {};
+	handleDeletePicture(pos) {
+		let newUrls = this.state.url.filter((e, i) => i != pos);
+		this.setState({
+			url: newUrls
+		})
+	};
 	render() {
 		return (
 			<main className='content'>
@@ -88,7 +93,7 @@ class CreateContent extends React.Component {
 						<textarea  value={this.state.text}  className='desc__input' rows="8" name='text' onChange={this.handleInputs}></textarea>
 						<h4 className='paper__pics'>Фотографии</h4>
 						<div className='paper__grid'>
-							{this.state.url.length ? this.state.url.map((e, i) => <PreviewCard url={e} key={i.toString()} urlId={i} cardId={this.id} deletePicture={this.handleDeletePicture} />) : false}
+							{this.state.url.length ? this.state.url.map((e, i) => <PreviewCard url={e} key={i.toString()} id={i} deletePicture={this.handleDeletePicture} />) : false}
 							<div className='card__pic preview-pic placeholder' style={{backgroundImage: `url(${placeHolder})`}}>
 								<label className='upload-pic' htmlFor='upload-pic'>link
 									<input className='paper__image' id='upload-pic' name='upload-pic' type='file' accept='image/*' onChange={this.handleUpload} multiple />

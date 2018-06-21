@@ -26840,7 +26840,7 @@ var Card = function Card(_ref) {
 	if (utils) {
 		styles = {
 			height: null,
-			bs: 'cover',
+			bs: 'contain',
 			border: null
 		};
 	} else {
@@ -26997,13 +26997,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Assets
 var PreviewCard = function PreviewCard(_ref) {
 	var src = _ref.url,
-	    urlId = _ref.urlId,
-	    cardId = _ref.cardId,
-	    removePicture = _ref.removePicture;
+	    id = _ref.id,
+	    deletePicture = _ref.deletePicture;
+
 	return _react2.default.createElement(
 		'div',
 		{ className: 'card__pic preview-pic', style: { backgroundImage: 'url(' + src + ')' } },
-		_react2.default.createElement('img', { className: 'delete-icon', src: _shapeCopyLineLineCopyDelete2.default })
+		_react2.default.createElement('img', { className: 'delete-icon', src: _shapeCopyLineLineCopyDelete2.default, onClick: function onClick() {
+				return deletePicture(id);
+			} })
 	);
 };
 
@@ -27156,7 +27158,14 @@ var CreateContent = function (_React$Component) {
 		}
 	}, {
 		key: 'handleDeletePicture',
-		value: function handleDeletePicture() {}
+		value: function handleDeletePicture(pos) {
+			var newUrls = this.state.url.filter(function (e, i) {
+				return i != pos;
+			});
+			this.setState({
+				url: newUrls
+			});
+		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -27197,7 +27206,7 @@ var CreateContent = function (_React$Component) {
 							'div',
 							{ className: 'paper__grid' },
 							this.state.url.length ? this.state.url.map(function (e, i) {
-								return _react2.default.createElement(_PreviewCard2.default, { url: e, key: i.toString(), urlId: i, cardId: _this3.id, deletePicture: _this3.handleDeletePicture });
+								return _react2.default.createElement(_PreviewCard2.default, { url: e, key: i.toString(), id: i, deletePicture: _this3.handleDeletePicture });
 							}) : false,
 							_react2.default.createElement(
 								'div',
@@ -27258,10 +27267,11 @@ var addPicture = exports.addPicture = function addPicture(url) {
 	};
 };
 
-var removePicture = exports.removePicture = function removePicture(id) {
+var removePicture = exports.removePicture = function removePicture(picId, cardId) {
 	return {
 		type: _actionTypes.REMOVE_PICTURE,
-		id: id
+		picId: picId,
+		cardId: cardId
 	};
 };
 },{"../actionTypes":111}],118:[function(require,module,exports) {
@@ -27353,7 +27363,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch, props) {
 		editCard: function editCard(id, title, text, url) {
 			return dispatch((0, _actions.editCard)(id, title, text, url));
 		},
-		removePicture: function removePicture(id) {
+		removePicture: function removePicture(picId, cardId) {
 			return dispatch((0, _actions.removePicture)(id));
 		}
 	};
@@ -27609,6 +27619,22 @@ var cardReducer = function cardReducer() {
 					return id == i ? _extends({}, card) : oldcard;
 				});
 			}
+		case _actionTypes.REMOVE_PICTURE:
+			{
+				var picId = action.picId,
+				    cardId = action.cardId;
+
+				return state.map(function (oldCard, i) {
+					if (i == cardId) {
+						var _url = oldCard.url.filter(function (oldUrl, k) {
+							return k != picId;
+						});
+						return _extends({}, oldCard, { url: _url });
+					} else {
+						return oldCard;
+					}
+				});
+			}
 		default:
 			{
 				return state;
@@ -27684,6 +27710,7 @@ window.store = _store2.default;
 
 window.editCard = _actions.editCard;
 window.createCard = _actions.createCard;
+window.removePicture = _actions.removePicture;
 
 console.log(_store2.default.getState());
 _store2.default.subscribe(function () {

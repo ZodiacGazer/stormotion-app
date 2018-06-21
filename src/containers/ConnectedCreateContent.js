@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch, props) => {
 	return {
 		createCard: (title, text, url) => dispatch(createCard(title, text, url)),
 		editCard: (id, title, text, url) => dispatch(editCard(id, title, text, url)),
-		removePicture: (id) => dispatch(removePicture(id))
+		removePicture: (picId, cardId) => dispatch(removePicture(id))
 	}
 };
 

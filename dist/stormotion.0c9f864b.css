@@ -134,6 +134,7 @@ input[type='file'] {
 	position: relative;
 	top: -12px;
 	left: 88px;
+	cursor: pointer;
 }.create__preview {
 	flex-basis: 40%;
 }
@@ -164,6 +165,7 @@ input[type='file'] {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 20px;
+	margin-bottom: 30px;
 	width: 90%;
 	border-top: 1px solid rgba(40,44,45,0.2);
 }

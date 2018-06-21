@@ -7,9 +7,10 @@ export const addPicture = (url) => {
 	}
 };
 
-export const removePicture = (id) => {
+export const removePicture = (picId, cardId) => {
 	return {
 		type: REMOVE_PICTURE,
-		id
+		picId,
+		cardId
 	}
 }
