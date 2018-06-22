@@ -12,17 +12,6 @@ const cardReducer = (state=[], action) => {
 			const {id, ...card} = action;
 			return state.map((oldcard, i) => id == i ? {...card} : oldcard); 
 		}
-		case REMOVE_PICTURE: {
-			const {picId, cardId} = action;
-			return state.map((oldCard, i) => {
-				if (i == cardId) {
-					let url = oldCard.url.filter((oldUrl, k) => k != picId);
-					return {...oldCard, url};
-				} else {
-					return oldCard;
-				}
-			});
-		}
 		default: {
 			return state;
 		}

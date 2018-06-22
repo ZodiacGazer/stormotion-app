@@ -57,9 +57,10 @@ li {
 	grid-template-columns: 15% 85%;
 	position: absolute;
 	left: 0;right:0;top:0;bottom:0;
-	width: 80%;
+	width: 90%;
 	height:80%;
 	margin: auto;
+	box-shadow: 0 36px 50px 0 rgba(0, 0, 0, 0.12);
 }
 
 .empty__left {

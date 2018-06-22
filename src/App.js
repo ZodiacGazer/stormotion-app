@@ -16,7 +16,6 @@ const App = ({store}) => (
 				<Route exact path='/' component={Main} />
 				<Route path='/create' component={Create} />
 				<Route path='/:id' component={Create} />
-				<Route render={() => <div>Not found</div>} />
 			</Switch>
 		</Router>
 	</Provider>

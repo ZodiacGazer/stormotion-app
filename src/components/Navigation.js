@@ -24,9 +24,7 @@ const Navigation = ({title, backSpace}) => {
 
 					}
 					<h1 className='nav__title'>{title}</h1>
-						{ backSpace=='on' ?	<Link to='/create'>	
-													<Button title='Сохранить' saveState='on' />
-											</Link>
+						{ backSpace=='on' ?	null
 										  :
 										  <Link to='/create'>	
 													<Button title='Создать' saveState='off' />
