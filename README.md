@@ -1,4 +1,4 @@
 # stormotion-app
 **(react/redux)**
 ---
-I used parcel bundler(parcel index.html)
+I used parcel bundler(**node:** parcel index.html)
